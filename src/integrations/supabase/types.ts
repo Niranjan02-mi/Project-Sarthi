@@ -14,7 +14,78 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      bus_pings: {
+        Row: {
+          bus_id: string
+          created_at: string
+          heading: number
+          id: string
+          lat: number
+          lng: number
+          occupancy: string
+          route: string
+          speed: number
+        }
+        Insert: {
+          bus_id: string
+          created_at?: string
+          heading?: number
+          id?: string
+          lat: number
+          lng: number
+          occupancy?: string
+          route: string
+          speed?: number
+        }
+        Update: {
+          bus_id?: string
+          created_at?: string
+          heading?: number
+          id?: string
+          lat?: number
+          lng?: number
+          occupancy?: string
+          route?: string
+          speed?: number
+        }
+        Relationships: []
+      }
+      incident_reports: {
+        Row: {
+          bus_id: string | null
+          created_at: string
+          id: string
+          kind: string
+          lat: number | null
+          lng: number | null
+          message: string | null
+          status: string
+          stop_id: string | null
+        }
+        Insert: {
+          bus_id?: string | null
+          created_at?: string
+          id?: string
+          kind: string
+          lat?: number | null
+          lng?: number | null
+          message?: string | null
+          status?: string
+          stop_id?: string | null
+        }
+        Update: {
+          bus_id?: string | null
+          created_at?: string
+          id?: string
+          kind?: string
+          lat?: number | null
+          lng?: number | null
+          message?: string | null
+          status?: string
+          stop_id?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
