@@ -283,10 +283,24 @@ export type Database = {
             referencedColumns: ["id"]
           },
           {
+            foreignKeyName: "roster_conductor_id_fkey"
+            columns: ["conductor_id"]
+            isOneToOne: false
+            referencedRelation: "public_drivers"
+            referencedColumns: ["id"]
+          },
+          {
             foreignKeyName: "roster_driver_id_fkey"
             columns: ["driver_id"]
             isOneToOne: false
             referencedRelation: "drivers"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "roster_driver_id_fkey"
+            columns: ["driver_id"]
+            isOneToOne: false
+            referencedRelation: "public_drivers"
             referencedColumns: ["id"]
           },
         ]
@@ -356,7 +370,30 @@ export type Database = {
       }
     }
     Views: {
-      [_ in never]: never
+      public_drivers: {
+        Row: {
+          id: string | null
+          name: string | null
+          rating: number | null
+          role: string | null
+          status: string | null
+        }
+        Insert: {
+          id?: string | null
+          name?: string | null
+          rating?: number | null
+          role?: string | null
+          status?: string | null
+        }
+        Update: {
+          id?: string | null
+          name?: string | null
+          rating?: number | null
+          role?: string | null
+          status?: string | null
+        }
+        Relationships: []
+      }
     }
     Functions: {
       [_ in never]: never
